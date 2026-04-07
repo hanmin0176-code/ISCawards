@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_meta": {
+    "insurer_code": "samsung_fire",
+    "insurer_name": "삼성화재",
+    "campaign_name": "26.4월 2주차 삼성화재 시상",
+    "campaign_year": 2026,
+    "campaign_month": 4,
+    "week_label": "2주차",
+    "sales_period_start": "2026-04-06",
+    "sales_period_end": "2026-04-12",
+    "currency": "KRW"
+  },
+  "source_meta": {
+    "source_type": "image",
+    "source_file_name": "samsung_2026_04_week2.png",
+    "ai_model_name": "gpt-5.4-thinking",
+    "prompt_version": "parse_v1",
+    "raw_ocr_text": "",
+    "confidence": "medium"
+  },
+  "global_rules": {
+    "default_metric_type": "premium_amount",
+    "default_currency_unit": "KRW",
+    "requires_admin_review": true,
+    "retention_years": 3
+  },
+  "sections": [
+    {
+      "section_code": "week2_life_next_month",
+      "section_name": "2주차 인보험 / 익월지급",
+      "section_type": "tiered_cash",
+      "metric_type": "premium_amount",
+      "stack_mode": "additive",
+      "sales_periods": [
+        {
+          "period_type": "sales",
+          "label": "4.6~12일",
+          "start_date": "2026-04-06",
+          "end_date": "2026-04-12"
+        }
+      ],
+      "tiers": [
+        {
+          "tier_order": 1,
+          "min_value": 100000,
+          "max_value": 199999,
+          "reward_type": "cash",
+          "reward_cash_amount": 300000,
+          "reward_meta": null,
+          "note": ""
+        },
+        {
+          "tier_order": 2,
+          "min_value": 200000,
+          "max_value": 299999,
+          "reward_type": "cash",
+          "reward_cash_amount": 600000,
+          "reward_meta": null,
+          "note": ""
+        }
+      ],
+      "payout_policy": {
+        "timing_type": "next_month",
+        "month_offset": 1,
+        "expected_payout_month": "2026-05",
+        "note": "익월 지급"
+      },
+      "maintenance_policy": {
+        "required": false,
+        "round_no": null,
+        "rule_text": ""
+      },
+      "exclusions": [
+        {
+          "exclusion_type": "product_category",
+          "operator": "in",
+          "value": "실손,단체,펫,재물,TheraLife",
+          "note": "원본 표 기준"
+        }
+      ],
+      "clawback_policy": {
+        "enabled": false,
+        "mode": null,
+        "rule_text": ""
+      },
+      "logic_json": null,
+      "option_rewards": null,
+      "evidence_text": "2주차 인보험 / 익월(5월) 지급",
+      "confidence": "medium"
+    }
+  ],
+  "validation_flags": [
+    {
+      "level": "warning",
+      "field": "sections[0].tiers[0].max_value",
+      "message": "이미지 원본에 상한값이 명확히 보이지 않음"
+    }
+  ]
+}
